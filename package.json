@@ -1,0 +1,10 @@
+{
+    "name": "German-Synonym-Finder",
+    "version": "1.0.0",
+    "description": "Find Synonym for given Keyword using https://www.openthesaurus.de",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "alfy": "^0.7.0"
+    }
+}

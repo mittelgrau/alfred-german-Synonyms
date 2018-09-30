@@ -1,0 +1,19 @@
+const alfy = require('alfy');
+
+if (alfy.input.length > 4) {
+    alfy.fetch(`https://www.openthesaurus.de/synonyme/search?q=${alfy.input}&format=application/json`).then(response => {
+
+        const synonyms = [];
+        response.synsets.forEach(
+            entry =>
+            synonyms.push(...entry.terms)
+        );
+        const items = synonyms
+            .map(x => ({
+                title: x.term,
+                subtitle: x.level,
+                arg: x.id
+            }));
+        alfy.output(items);
+    });
+};
