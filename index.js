@@ -1,8 +1,9 @@
 const alfy = require('alfy');
 
 if (alfy.input.length > 4) {
-    alfy.fetch(`https://www.openthesaurus.de/synonyme/search?q=${alfy.input}&format=application/json`).then(response => {
+    let sanitizedInput = encodeURI(alfy.input);
 
+    alfy.fetch(`https://www.openthesaurus.de/synonyme/search?q=${sanitizedInput}&format=application/json`).then(response => {
         const synonyms = [];
         response.synsets.forEach(
             entry =>
